@@ -1,0 +1,494 @@
+/* 비주얼 영역입니다. */
+
+
+#visual {
+    width: 100%;
+    height: auto;
+    background-color: red;
+    overflow: hidden;
+}
+
+@keyframes ani1 {
+    0%{
+        transform: translate(calc(-100% / 6 * 0));
+    }    
+    30%{
+        transform: translate(calc(-100% / 6 * 0));
+    }
+
+
+    33%{
+        transform: translate(calc(-100% / 6 * 1));
+    }    
+    63%{
+        transform: translate(calc(-100% / 6 * 1));
+    }
+
+    66%{
+        transform: translate(calc(-100% / 6 * 2));
+    }    
+    96%{
+        transform: translate(calc(-100% / 6 * 2));
+    }
+
+    100% {
+        transform: translate(calc(-100% / 6 * 3));
+    }
+}
+
+
+
+#slideWrap {
+    width: 600%;
+    height: 500px;
+    transition: 0.35s;
+    background-color: blue;
+    display: flex;
+    animation: ani1 10s infinite;
+}
+
+#slideWrap div {
+    width: calc(100% / 6);
+    height: 500px;
+    background-color: gold;
+}
+
+#slideBtnWrap {
+    width: 100%;
+    z-index: 100;
+    background-color: aliceblue;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#slideBtnWrap > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#slideBtnWrap > div div {
+    width: 50px;
+    height: 10px;
+    background-color: gray;
+}
+
+#play:checked ~ #slideWrap {
+    animation-play-state: running;
+}
+
+
+#stop:checked ~ #slideWrap {
+    animation-play-state: paused;
+}
+
+#stop:checked ~ #slideBtnWrap label:nth-of-type(1) {
+    display: none;
+}
+
+#play:checked ~ #slideBtnWrap label:nth-of-type(2) {
+    display: none;
+}
+
+
+#slideBtnWrap div:hover {
+    cursor: pointer;
+}
+
+
+#notice {
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+#notice:hover {
+    cursor: url('../images/n1.png') 54 54, auto;
+    background-color: aliceblue;
+}
+
+#monthFestival {
+    width: 100%;
+    background-color: red;
+    box-sizing: border-box;
+}
+
+#monthFestival #hiddenWrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+#monthFestival #hiddenWrap #imgWrap {
+    width: 6000px;
+    display: flex;
+    transition: 0.35s;
+    justify-content: start;
+    align-items: end;
+    height: 500px;
+    gap: 70px;
+}
+
+#monthFestival #imgWrap div {
+    width: 325px;
+    height: 330px;
+    background-color: gray;
+    transition: 0.35s;
+    font-size: 70px;
+    font-size: 100px;
+}
+
+#monthFestival #monthBtnNav {
+    width: 100%;
+    height: 70px;
+    background-color: gold;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#monthFestival #monthBtnNav label {
+    cursor: pointer;
+    width: 100px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    height: 35px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 35px;
+}
+
+@keyframes last {
+    0%{
+        transform: translate(calc(395px * -1));
+    }
+
+    100% { 
+        transform: translate(0px);
+    }
+}
+
+@keyframes first {
+    0%{
+        transform: translate(calc(395px * -5));
+    }
+
+    100% { 
+        transform: translate(calc(395px * -6));
+    }
+}
+
+#monthFestival #t0:checked ~ #hiddenWrap #imgWrap {
+    animation: last 0.35s;
+    transform: translate(calc(395px * -5));
+}
+
+#monthFestival #t0:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(3) {
+    transform: scale(1.2);
+}
+
+#monthFestival #t0:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(8) {
+    transform: scale(1.2);
+}
+
+#monthFestival #t1:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(395px * -1));
+}
+
+#monthFestival #t1:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(4) {
+    transform: scale(1.2);
+}
+
+#monthFestival #t2:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(395px * -2));
+}
+
+#monthFestival #t3:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(395px * -3));
+}
+
+#monthFestival #t4:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(395px * -4));
+}
+
+#monthFestival #t5:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(395px * -5));
+}
+
+#monthFestival #t6:checked ~ #hiddenWrap #imgWrap {
+    animation: first 0.35s;
+    transform: translate(calc(395px * -1));
+}
+
+@keyframes noClick {
+    0%{
+        pointer-events: none;
+    }
+    99%{
+        pointer-events: none;
+    }
+    100%{
+        pointer-events: all;
+    }
+}
+
+#monthFestival #monthBtnNav div {
+    display: none;
+}
+
+#monthFestival #t0:checked ~ #monthBtnNav > div:nth-of-type(1) {
+    display: block;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t1:checked ~ #monthBtnNav > div:nth-of-type(2) {
+    display: block;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t2:checked ~ #monthBtnNav > div:nth-of-type(3) {
+    display: block;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t3:checked ~ #monthBtnNav > div:nth-of-type(4) {
+    display: block;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t4:checked ~ #monthBtnNav > div:nth-of-type(5) {
+    display: block;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t5:checked ~ #monthBtnNav > div:nth-of-type(6) {
+    display: block;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t6:checked ~ #monthBtnNav > div:nth-of-type(2) {
+    display: block;
+    animation: noClick 0.35s forwards;
+} 
+
+
+
+#count  {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px 100px;
+    background-color: aliceblue;
+
+}
+
+#count #chart1 {
+    display: flex;
+    gap: 20px;
+}
+
+#count #chart1 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 100px;
+    font-size: 30px;
+    height: 300px;
+    background-color: red;
+
+}
+
+:root {
+    --num: 500;
+    --num2: 700;
+    --num3: 1000;
+    --second: 3s;
+    --scrolls: 0;
+}
+
+
+@property --num {
+    syntax: "<integer>";
+    initial-value: 1000;
+    inherits: true;
+}
+
+@property --num2 {
+    syntax: "<integer>";
+    initial-value: 1000;
+    inherits: true;
+}
+
+@property --num3 {
+    syntax: "<integer>";
+    initial-value: 1000;
+    inherits: true;
+}
+
+@property --scrolls {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+#count {
+    animation: aniAuto linear;
+    animation-timeline: view(0px 0px);
+    --num: 0;
+    --num2: 0;
+    --num3: 0;
+    --second: 0s;
+
+}
+
+
+
+
+#count #chart1 > div > div {
+    height: calc(var(--num) / 1000 * 200px);
+    width: 50%;
+    background-color: blue;
+    transition: --num var(--second, 1s);
+    counter-set: num var(--num);
+    clip-path: polygon(0% 0%, 100% 3%, 100% 100%, 0% 100%);
+}
+
+#count #chart1 > div:nth-of-type(2) > div {
+    height: calc(var(--num2) / 1000 * 200px);
+    transition: --num2 var(--second, 1.5s);
+    counter-set: num var(--num2);
+}
+
+#count #chart1 > div:nth-of-type(3) > div {
+    height: calc(var(--num3) / 1000 * 200px);
+    transition: --num3 var(--second, 2s);
+    counter-set: num var(--num3);
+}
+
+#count #chart1 > div > div::after {
+    content: counter(num);
+}
+
+@keyframes aniAuto {
+ 
+    0%,100%{
+        --second: 3s;
+       --num: 500;
+       --num2: 700;
+       --num3: 1000;
+    }
+}
+
+@keyframes wi {
+    0%{
+        --scrolls: 0;
+    }
+    100%{
+        --scrolls: 455;
+    }
+}
+
+
+
+
+#view360 {
+    margin: 100px;
+    width: 700px;
+    height: 320px;
+    overflow: scroll;
+    overflow-y: hidden;
+    animation: wi linear;
+    animation-timeline: scroll(self x);
+    padding-bottom: 10px;   
+}
+
+
+#view360::-webkit-scrollbar {
+    height: 10px;
+    background-color: transparent;
+    pointer-events: none;
+    border-radius: 100px
+}
+
+#view360::-webkit-scrollbar-thumb:horizontal {
+
+    border-radius: 100px;
+    /* background-color: rgb(0, 0, 0, 0.3); */
+    cursor: pointer;
+
+}
+
+#view360 #imgWrap {
+    cursor: pointer;
+    width: 1900px;
+    height: 300px;
+    background-size: auto 100%; 
+    background-position: 0% center;
+    background-image: url('../images/bb.png');
+}
+
+#ww {
+    margin: 100px;
+    transform: scale(1.5);
+    width: 570px;
+    overflow: hidden;
+    position: relative;
+    /* background-color: antiquewhite; */
+}
+
+#ho {
+    position: absolute;
+    left: calc(95px + var(--scrolls) * 1px);
+    transition: --scrolls 0s;
+    pointer-events: none;
+    bottom: 95px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: dodgerblue;
+}
+
+
+#left {
+    position: absolute;
+    /* left: calc(95px + var(--scrolls) * 1px); */
+    transition: --scrolls 0s;
+    /* background-color: red; */
+    bottom: 95px;
+    width: calc(var(--scrolls) * 1px - 5px);
+    height: 20px;   
+}
+
+
+#right {
+    position: absolute;
+    /* left: calc(95px + var(--scrolls) * 1px); */
+    transition: --scrolls 0s;
+    /* background-color: blue; */
+    right: 0%;
+    bottom: 95px;
+    width: calc(455px - var(--scrolls) * 1px);
+    height: 20px;   
+}
+
+
+#time {
+    position: absolute;
+    left: 100px;
+    background-color: #ddd;
+    bottom: 101px;
+    border-radius: 1000px;
+    width: 470px;
+    height: 8px;   
+    pointer-events: none;
+}
+
+

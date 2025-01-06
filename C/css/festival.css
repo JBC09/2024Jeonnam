@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#allWrap {
+    margin: 0 auto;
+    padding: 100px 0px;
+    box-sizing: border-box;
+    width: 1320px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    position: relative;
+    overflow: hidden;
+}
+
+input[type="text"] {
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #ff6700;
+}
+
+.title h1 {
+    font-size: 48px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+}
+
+.title h2 {
+    font-size: 24px;
+    font-family: "Malgun Gothic";
+}
+
+#wraps {
+    margin-top: 100px;
+    margin-left: 300px;
+    width: 700px;
+    height: 600px;
+    position: relative;
+}
+
+svg {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transform: rotateX(180deg);
+    background-color: white;
+}
+
+svg path {
+    position: absolute;
+    fill: #ffa200;
+    stroke: black;
+    position: relative;
+    box-shadow: 0px 0px 30px black;
+    stroke-width: 1;
+    pointer-events: all;
+    display: block;
+}
+
+#circle {
+    transition: r 2s linear;
+    position: absolute;
+    fill: rgb(240, 248, 255, 0.8);
+    mix-blend-mode: lighten;
+    pointer-events: none;
+}
+
+svg path.green {
+    fill: #ff6700;
+    fill-opacity: 1;
+}
+
+svg path:hover {
+    fill: #ff6700;
+    fill-opacity: 1;
+}
+
+
+#title{
+    transform: translateX(-50%);
+    font-weight: 800;
+    font-size: 15px;
+    bottom: 0%;
+    left: 0%;
+    pointer-events: none;
+    position: absolute;
+}
+
+.subTitle {
+    transform: translateX(-50%);
+    font-weight: 800;
+    font-size: 15px;
+    bottom: 0%;
+    left: 0%;
+    pointer-events: none;
+    position: absolute;
+}
+
+
+#sideBar {
+    position: absolute;
+    left: 0px;
+    top: 25%;
+    width: 400px;
+    height: 60vh;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
+    z-index: 100;
+    padding: 40px;
+    transition: 0.35s;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    border-right: 30px solid #ffa200;
+}
+    
+#sideBar p {
+    font-size: 11px;
+}
+
+.btn {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    height: 20px;
+    width: auto;
+    line-height: 20px;
+}
+
+.actives {
+    border: 1px solid transparent;
+    background-color: #ff6700;
+    color: white;
+}
+
+svg path.golds {
+    fill: gold;
+    fill-opacity: 1;
+}
+
+#sideBtn {
+    position: absolute;
+    right: -90px;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    transition: 0.35s;
+}
+
+#sideBar div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sideBar div input {
+    width: 80%;
+    padding-left: 10px;
+}
+
+#sideBar div#dataWrap {
+    padding-right: 10px;
+    width: 100%;
+    height: 50vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: start;
+    align-items: start;
+}
+
+#sideBar div#dataWrap::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+    background-color: #ddd;
+}
+
+#sideBar div#dataWrap::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ff6700;
+}
+
+#dataWrap div {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 5px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+#dataWrap div * {
+    font-size: 13px;
+    font-weight: 100;
+}
+
+#dataWrap div h1 {
+    font-weight: bold;
+}
+
+#redPointer {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}

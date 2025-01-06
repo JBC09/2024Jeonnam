@@ -1,0 +1,1070 @@
+/* 비주얼 영역입니다. */
+
+
+#visual {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#visual input {
+    display: none;
+}
+
+@keyframes ani1 {
+    0%{
+        transform: translate(calc(-100% / 6 * 0));
+    }    
+    30%{
+        transform: translate(calc(-100% / 6 * 0));
+    }
+
+
+    33%{
+        transform: translate(calc(-100% / 6 * 1));
+    }    
+    63%{
+        transform: translate(calc(-100% / 6 * 1));
+    }
+
+    66%{
+        transform: translate(calc(-100% / 6 * 2));
+    }    
+    96%{
+        transform: translate(calc(-100% / 6 * 2));
+    }
+
+    100% {
+        transform: translate(calc(-100% / 6 * 3));
+    }
+}
+
+@keyframes rota {
+    0%{
+        transform: rotateX(0deg);
+    }    
+    30%{
+        transform: rotateX(0deg);
+    }
+
+
+    33%{
+        transform: rotateX(120deg);
+    }    
+    63%{
+        transform: rotateX(120deg);
+    }
+
+    66%{
+        transform: rotateX(240deg);
+    }    
+    96%{
+        transform: rotateX(240deg);
+    }
+
+    100% {
+        transform: rotateX(360deg);
+    }
+}
+
+#visual #absoulateContent {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+#tabs {
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    transition: 3s;
+    animation: rota 10s infinite;
+}
+
+#tabs div {
+    backface-visibility: hidden; /* 뒷면 숨김 */
+    position: absolute;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px;
+    transform:translateZ(10px);
+    color: black;
+    border-radius: 5px;
+}
+
+#tabs div:nth-of-type(2) {
+    transform: rotateX(-120deg) translateZ(10px);
+}
+
+#tabs div:nth-of-type(3) {
+    transform: rotateX(120deg) translateZ(10px);
+}
+
+
+#visual #absoulateContent h1 {
+    font-size: 75px;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#slideWrap {
+    width: 600%;
+    height: 820px;
+    transition: 0.35s;
+    display: flex;
+    animation: ani1 10s infinite;
+}
+
+#slideWrap div {
+    background-image: url('../images/자산\ 26.png');
+    width: calc(100% / 6);
+    height: 100%;
+    background-size: 108% auto;
+    background-repeat: no-repeat;
+}
+
+#slideWrap div.two {
+    background-image: url('../images/자산\ 27.png');
+}
+
+#slideWrap div.three {
+    background-image: url('../images/자산\ 28.png');
+}
+
+#slideBtnWrap {
+    width: 100%;
+    z-index: 100;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+
+
+#slideBtnWrap > label {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 50%;
+    color: #FF6700;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    border: 4px solid #FF6700;
+}
+
+#play:checked ~ #slideWrap {
+    animation-play-state: running;
+}
+
+
+#stop:checked ~ #slideWrap {
+    animation-play-state: paused;
+}
+
+#stop:checked ~ #absoulateContent #slideBtnWrap label:nth-of-type(1) {
+    display: none;
+}
+
+#play:checked ~ #absoulateContent #slideBtnWrap label:nth-of-type(2) {
+    display: none;
+}
+
+
+#slideBtnWrap div:hover {
+    cursor: pointer;
+}
+
+
+#notice {
+    width: 100%;
+    margin: 150px auto;
+    padding: 0px 270px;
+    cursor: pointer;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+#contentWrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+    row-gap: 50px;
+}
+
+#notice .itemWrap {
+    
+    animation: tpop 10s infinite forwards;
+    filter: drop-shadow(-0px 0px 5px rgba(0, 0, 0, 0.1));
+    
+    
+}
+
+@keyframes tpop {
+    0%{
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+    20%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+#notice .item {
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+    padding: 20px 40px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    height: 110px;
+    background-color: white;
+    transition: 0.35s;
+}
+
+#notice .itemWrap:nth-of-type(2) {
+    animation-delay: 0.1s;
+}
+
+#notice .itemWrap:nth-of-type(3) {
+    animation-delay: 0.2s;
+}
+
+#notice .itemWrap:nth-of-type(4) {
+    animation-delay: 0.3s;
+}
+
+#notice .itemWrap:nth-of-type(5) {
+    animation-delay: 0.4s;
+}
+
+#notice .itemWrap:nth-of-type(6) {
+    animation-delay: 0.5s;
+}
+
+#notice .item h3 {
+    color: #FF6700;
+}
+
+#notice .item p {
+    color: #272727;
+}
+
+#notice .item:hover {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    background-color: #FF6700;
+}
+
+#notice .item:hover h3 {
+    color: white;
+}
+
+#notice .itemWrap:nth-of-type(1) .item:hover {
+    cursor: url('../images/n1.png') 54 54, auto;
+}
+
+#notice .itemWrap:nth-of-type(2) .item:hover {
+    cursor: url('../images/n2.png') 54 54, auto;
+}
+
+#notice .itemWrap:nth-of-type(3) .item:hover {
+    cursor: url('../images/n3.png') 54 54, auto;
+}
+
+#notice .itemWrap:nth-of-type(4) .item:hover {
+    cursor: url('../images/n4.png') 54 54, auto;
+}
+
+#notice .itemWrap:nth-of-type(5) .item:hover {
+    cursor: url('../images/n5.png') 54 54, auto;
+}
+
+#notice .itemWrap:nth-of-type(6) .item:hover {
+    cursor: url('../images/n6.png') 54 54, auto;
+}
+
+#monthFestival {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 270px;
+    display: flex;
+    flex-direction: column;
+}
+
+#monthFestival input {
+    display: none;
+}
+
+
+#monthFestival #hiddenWrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+#monthFestival #hiddenWrap #imgWrap {
+    width: 10000px;
+    display: flex;
+    transition: 0.35s;
+    justify-content: start;
+    align-items: end;
+    height: 350px;
+    gap: 65px;
+}
+
+#monthFestival #imgWrap > div {
+    width: 200px;
+    height: 330px;
+    transition: 0.35s;
+    background-color: #FF6700;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#monthFestival #imgWrap > div div {
+    width: 100%;
+    height: 200px;
+    background-position: center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-color: aliceblue;
+    transition: 0.35s;
+}
+
+#monthFestival #imgWrap > div div:hover {
+    background-size: auto 130%;
+}
+
+
+#monthFestival #imgWrap div h1 {
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+#monthFestival #imgWrap div p {
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+
+#monthFestival #monthBtnNav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+#monthFestival #monthBtnNav div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#monthFestival #monthBtnNav label {
+    padding: 10px;
+
+    border-radius: 50%;
+    border: 1px solid #FF6700;
+
+}
+
+#monthFestival #monthBtnNav label svg {
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    fill: #FF6700;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+@keyframes last {
+    0%{
+        transform: translate(calc(265px * -1));
+    }
+
+    100% { 
+        transform: translate(0px);
+    }
+}
+
+@keyframes first {
+    0%{
+        transform: translate(calc((265px * -5) - 100px));
+    }
+
+    100% { 
+        transform: translate(calc(((265px * -6) - 100px)));
+    }
+}
+
+#monthFestival #t0:checked ~ #hiddenWrap #imgWrap {
+    animation: last 0.35s;
+    transform: translate(calc((265px * -5)  - 100px));
+}
+
+#monthFestival #t0:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(3) {
+    width: 300px;
+}
+
+#monthFestival #t0:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(8) {
+    width: 300px;
+}
+
+#monthFestival #t1:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(265px * -1));
+}
+
+#monthFestival #t1:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(4) {
+    width: 300px;
+}
+
+#monthFestival #t2:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(265px * -2));
+}
+
+#monthFestival #t2:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(5) {
+    width: 300px;
+}
+
+#monthFestival #t3:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(265px * -3));
+}
+
+#monthFestival #t3:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(6) {
+    width: 300px;
+}
+
+#monthFestival #t4:checked ~ #hiddenWrap #imgWrap {
+    transform: translate(calc(265px * -4));
+}
+
+#monthFestival #t4:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(7) {
+    width: 300px;
+}
+
+#monthFestival #t5:checked ~ #hiddenWrap #imgWrap {
+
+    transform: translate(calc(265px * -5));
+}
+
+#monthFestival #t5:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(8) {
+    width: 300px;
+}
+
+#monthFestival #t6:checked ~ #hiddenWrap #imgWrap {
+    animation: first 0.35s;
+
+    transform: translate(calc((265px * -1)));
+}
+
+#monthFestival #t6:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(4) {
+    width: 300px;
+}
+
+#monthFestival #t6:checked ~ #hiddenWrap #imgWrap > div:nth-of-type(9) {
+    width: 300px;
+}
+
+@keyframes noClick {
+    0%{
+        pointer-events: none;
+    }
+    99%{
+        pointer-events: none;
+    }
+    100%{
+        pointer-events: all;
+    }
+}
+
+#monthFestival #monthBtnNav div {
+    display: none;
+}
+
+#monthFestival #t0:checked ~ #monthBtnNav > div:nth-of-type(1) {
+    display: flex;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t1:checked ~ #monthBtnNav > div:nth-of-type(2) {
+    display: flex;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t2:checked ~ #monthBtnNav > div:nth-of-type(3) {
+    display: flex;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t3:checked ~ #monthBtnNav > div:nth-of-type(4) {
+    display: flex;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t4:checked ~ #monthBtnNav > div:nth-of-type(5) {
+    display: flex;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t5:checked ~ #monthBtnNav > div:nth-of-type(6) {
+    display: flex;
+    animation: noClick 0.35s forwards;
+} 
+
+#monthFestival #t6:checked ~ #monthBtnNav > div:nth-of-type(2) {
+    display: flex;
+    animation: noClick 0.35s forwards;
+} 
+
+#countWrap {
+    background-color: aliceblue;
+    padding: 50px 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+
+#count  {
+    width: 100%;
+    box-sizing: border-box;
+
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 150px;
+    row-gap: 70px;
+    justify-content: space-between;
+}
+
+
+#count h1 {
+    font-size: 25px;
+}
+
+#count #chart1 {
+    display: flex;
+    gap: 20px;
+    width: 40%;
+}
+
+#count #chart1 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 100px;
+    font-size: 30px;
+    height: 300px;
+    gap: 5px;
+}
+
+#count #chart1 > div p {
+    font-size: 20px;
+}
+
+
+
+@property --num1 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --num2 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --num3 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --fsNum1 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --fsNum2 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --fsNum3 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+
+@property --visit1 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --visit2 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --visit3 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --card1 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --card2 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --card3 {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+@property --scrolls {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+#count {
+    display: flex;
+    gap: 70px;
+    justify-content: start;
+    animation: aniAuto linear;
+    animation-timeline: view(0px 0px);
+    --num1: 0;
+    --num2: 0;
+    --num3: 0;
+    --second: 0s;
+
+    /* 축제횟수 */
+    --fsNum1: 0;
+    --fsNum2: 0;
+    --fsNum3: 0;
+
+    /* 방문객 */
+    --visit1: 0;
+    --visit2: 0;
+    --visit3: 0;
+
+    /* 카드소비액 */
+    --card1: 0;
+    --card2: 0;
+    --card3: 0;
+}
+
+#count > div {
+    max-width: 20%;
+}
+
+#count h1 {
+    color: gray;
+    font-size: 14px;
+    word-break: keep-all;
+}
+
+#count #chart1 > div > div {
+  
+    width: 80%;
+    position: relative;
+    background-color: #ffa200;
+    clip-path: polygon(0% 0%, 100% 8%, 100% 100%, 0% 100%);
+}
+
+#count #chart1 > div p {
+    word-break: keep-all;
+}
+
+#count #chart1 > div:nth-of-type(3) > div {
+    background-color: #ff6700;
+}
+
+
+#count #chart1:nth-of-type(1) > div > div {
+    height: calc(var(--num1) / 2315 * 200px);
+  
+    transition: --num1 var(--second, 1s);
+    counter-set: num var(--num1);
+}
+
+#count #chart1:nth-of-type(1) > div:nth-of-type(2) > div {
+    height: calc(var(--num2) / 2315 * 200px);
+    transition: --num2 var(--second, 1.5s);
+    counter-set: num var(--num2);
+}
+
+#count #chart1:nth-of-type(1) > div:nth-of-type(3) > div {
+    height: calc(var(--num3) / 2315 * 200px);
+    transition: --num3 var(--second, 2s);
+    counter-set: num var(--num3);
+}
+
+#count #chart1 > div > div::after {
+    content: counter(num);
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+/* 축제횟수 */
+
+#count #chart1:nth-of-type(2) > div > div {
+    height: calc(var(--fsNum1) / 82 * 200px);
+ 
+    transition: --fsNum1 var(--second, 1s);
+    counter-set: num var(--fsNum1);
+}
+
+#count #chart1:nth-of-type(2) > div:nth-of-type(2) > div {
+    height: calc(var(--fsNum2) / 82 * 200px);
+    transition: --fsNum2 var(--second, 1.5s);
+    counter-set: num var(--fsNum2);
+}
+
+#count #chart1:nth-of-type(2) > div:nth-of-type(3) > div {
+    height: calc(var(--fsNum3) / 82 * 200px);
+    transition: --fsNum3 var(--second, 2s);
+    counter-set: num var(--fsNum3);
+}
+
+
+/* 방문객 */
+#count #chart1:nth-of-type(3) > div > div {
+    height: calc(var(--visit1) / 325 * 200px);
+ 
+    transition: --visit1 var(--second, 1s);
+    counter-set: num var(--visit1);
+}
+
+#count #chart1:nth-of-type(3) > div:nth-of-type(2) > div {
+    height: calc(var(--visit2) / 325 * 200px);
+    transition: --visit2 var(--second, 1.5s);
+    counter-set: num var(--visit2);
+}
+
+#count #chart1:nth-of-type(3) > div:nth-of-type(3) > div {
+    height: calc(var(--visit3) / 325 * 200px);
+    transition: --visit3 var(--second, 2s);
+    counter-set: num var(--visit3);
+}
+
+
+/* 카드소비액 */
+#count #chart1:nth-of-type(4) > div > div {
+    height: calc(var(--card1) / 842 * 200px);
+    transition: --card1 var(--second, 1s);
+    counter-set: num var(--card1);
+}
+
+#count #chart1:nth-of-type(4) > div:nth-of-type(2) > div {
+    height: calc(var(--card2) / 842 * 200px);
+    transition: --card2 var(--second, 1.5s);
+    counter-set: num var(--card2);
+}
+
+#count #chart1:nth-of-type(4) > div:nth-of-type(3) > div {
+    height: calc(var(--card3) / 842 * 200px);
+    transition: --card3 var(--second, 2s);
+    counter-set: num var(--card3);
+}
+
+
+@keyframes aniAuto {
+ 
+    0%,100%{
+        --second: 3s;
+       --num1: 1320;
+       --num2: 1704;
+       --num3: 2315;
+       
+       /* 축제획수 */
+       --fsNum1: 30;
+       --fsNum2: 52;
+       --fsNum3: 82;
+
+       /* 방문객 */
+       --visit1: 240;
+       --visit2: 278;
+       --visit3: 325;
+
+
+       /* 카드소비액 */
+       --card1: 521;
+       --card2: 716;
+       --card3: 842;
+    }
+}
+
+@keyframes wi {
+    0%{
+        --scrolls: 0;
+    }
+    100%{
+        --scrolls: 540;
+    }
+}
+
+
+#sliderWrap {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    padding: 50px 270px;
+}
+
+
+
+#view360 {
+    width: 600px;
+    margin-bottom: 100px;
+    height: 320px;
+    overflow: scroll;
+    overflow-y: hidden;
+    animation: wi linear;
+    animation-timeline: scroll(self x);
+    padding-bottom: 10px;  
+}
+
+
+
+#view360::-webkit-scrollbar {
+    height: 10px;
+    background-color: transparent;
+    pointer-events: none;
+    border-radius: 100px
+}
+
+#view360::-webkit-scrollbar-thumb:horizontal {
+
+    border-radius: 100px;
+    /* background-color: rgb(0, 0, 0, 0.3); */
+    cursor: pointer;
+
+}
+
+#view360 #imgWrap {
+    cursor: pointer;
+    width: 10000px;
+    height: 300px;
+    background-size: auto 100%; 
+    background-position: 0% center;
+}
+
+#hiddenFigure {
+    width: 560px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    top: 0%;
+    position: absolute;
+}
+
+#figureWrap {
+    display: flex;
+    height: 300px;
+    transform-style: preserve-3d;
+    justify-content: center;
+    align-items: center;
+    transform: perspective(279px) translateZ(279px) rotateY(calc(var(--scrolls) * 0.66deg));
+}
+
+#figureWrap img {
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    transform: translateZ(279px);
+}
+
+#figureWrap img:nth-of-type(2) {
+
+    transform: rotateY(90deg) translateZ(279px);
+}
+
+#figureWrap img:nth-of-type(3) {
+
+    transform: rotateY(180deg) translateZ(279px);
+}
+
+#figureWrap img:nth-of-type(4) {
+
+    transform: rotateY(270deg) translateZ(279px);
+}
+
+
+
+
+
+#ww {
+    width: 560px;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+
+}
+
+
+#ho {
+    position: absolute;
+    left: calc(var(--scrolls) * 1px);
+    transition: --scrolls 0s;
+    pointer-events: none;
+    bottom: 95px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FF6700;
+}
+
+
+#left {
+    position: absolute;
+    left: 0px;
+    transition: --scrolls 0s;
+    /* background-color: red; */
+    bottom: 95px;
+    width: calc(var(--scrolls) * 1px);
+    height: 20px;   
+}
+
+
+#right {
+    position: absolute;
+
+    transition: --scrolls 0s;
+    /* background-color: blue; */
+    right: 0%;
+    bottom: 95px;
+    width: calc(540px - var(--scrolls) * 1px);
+    height: 20px;   
+}
+
+
+#time {
+    position: absolute;
+    left: 0px;
+    background-color: #ddd;
+    bottom: 101px;
+    border-radius: 1000px;
+    width: 560px;
+    height: 8px;   
+    pointer-events: none;
+}
+
+#viewService {
+    box-sizing: border-box;
+    justify-content: start;
+    align-items: start;
+    display: flex;
+    width: 100%;
+    gap: 90px;
+    
+}
+
+#viewService #content {
+    display: flex;
+    width: 550px;
+    flex-direction: column;
+    
+    gap: 40px;
+    align-items: start;
+}
+
+#viewService #content div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#viewService #content p {
+    width: 400px;
+}
+
+#viewService #content p.btnSmall {
+    width: 130px;
+    font-family: "malgun Gothic";
+    font-weight: bold;
+}
+
+
+footer {
+    clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
+    width: 100%;
+    background-color: #ff6700;
+    height: 150px;
+    display: flex;
+    align-items: center; 
+    gap: 150px;
+    color: white;
+    padding: 0px 270px;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 12px;
+    line-height: 23px;
+}
+
+footer p {
+    transform: translateY(-30px);
+}
+
+
+
+footer #copy {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}

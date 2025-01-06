@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회전하는 3D 삼각형</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .triangle-container {
+            perspective: 800px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .triangle {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 6s linear infinite;
+        }
+
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.1);
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            backface-visibility: hidden; /* 뒷면 숨김 */
+        }
+
+        .front {
+            transform: translateZ(115px);
+        }
+
+        .back {
+            transform: rotateX(-120deg) translateZ(115px);
+        }
+
+        .bottom {
+            transform: rotateX(120deg) translateZ(115px);
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateX(0deg);
+            }
+            100% {
+                transform: rotateX(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="triangle-container">
+        <div class="triangle">
+            <div class="face front">앞면</div>
+            <div class="face back">뒷면</div>
+            <div class="face bottom">바닥면</div>
+        </div>
+    </div>
+</body>
+</html>

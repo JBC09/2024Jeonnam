@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+#wrap {
+    width: 100%;
+    padding: 50px 300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 100px;
+}
+
+#wrap > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.btnSmall {
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 35px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#modal {
+    background-color: rgba(0,0,0, 0.7);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    z-index: 1000;
+ }
+
+#modal #content {
+    display: flex;
+    flex-direction: column;
+}
+
+#modal #btnNav {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 10px;
+    align-items: center;
+    background-color: white;
+}
+
+#modals {
+    display: none;
+}
+
+#modals:checked + #modal {
+    display: none;
+}
+
+#modal label {
+    display: flex;
+    gap: 5px;
+}
+
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px 300px;
+    height: 100px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+header .logo h1 {
+    position: relative;
+    font-size: 21px;
+}
+
+@keyframes upDown {
+    0%{
+        top: 0%;
+    }
+    100%{
+        top: 90%;
+    }
+}
+
+header .logo h1::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    right: -10px;
+    top: 0%;
+    border-radius: 50%;
+    position: absolute;
+    background-color: red;
+    animation:  upDown 0.35s infinite alternate linear;
+}
+
+header nav, header div {
+    display: flex;
+    gap: 40px;
+}
+
+
+.btnSmall {
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
+
+.red {
+    background-color: #ff6700;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    font-size: 14px;
+}
+
+#sign {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    color: #ff6700;
+    display: flex;
+    flex-direction: column;
+}
+
+.title h1 {
+    font-size: 48px; 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+}
+
+.title h2 {
+    font-size: 24px;
+}
+
+#form {
+    background-color: white;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0, 0.1);
+    width: 500px;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    position: relative;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+select {
+    height: 35px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+
+#form > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+}
+
+#form > div div {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    padding-left: 10px;
+    height: 35px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0%;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+ 
+
+footer {
+    width: 100%;
+    height: 120px;
+    background-color: #ff6700;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-sizing: border-box;
+    padding: 0px 300px;
+    color: white;
+    font-size: 14px;
+    line-height: 23px;
+    clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
+}
+
+
+footer #copyright {
+    font-size: 12px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+footer img {
+    filter: brightness(0) invert(1);
+}
+

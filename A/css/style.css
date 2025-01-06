@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    width: 100%;
+    height: 400vh;
+    position: relative;
+}
+
+.btnSmall {
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 35px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#modal {
+    background-color: rgba(0,0,0, 0.7);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    z-index: 1000;
+    display: none; /*임시*/
+ }
+
+#modal #content {
+    display: flex;
+    flex-direction: column;
+}
+
+#modal #btnNav {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 10px;
+    align-items: center;
+    background-color: white;
+}
+
+#modals {
+    display: none;
+}
+
+#modals:checked + #modal {
+    display: none;
+}
+
+#modal label {
+    display: flex;
+    gap: 5px;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px 50px;
+    height: 100px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0, 0.1);
+}
+
+header .logo h1 {
+    position: relative;
+}
+
+@keyframes upDown {
+    0%{
+        top: 0%;
+    }
+    100%{
+        top: 90%;
+    }
+}
+
+header .logo h1::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    right: -10px;
+    top: 0%;
+    border-radius: 50%;
+    position: absolute;
+    background-color: red;
+    animation:  upDown 0.35s infinite alternate linear;
+}
+
+header nav, header div {
+    display: flex;
+    gap: 40px;
+}
+
+
+

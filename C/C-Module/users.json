@@ -1,0 +1,23 @@
+[
+  {
+    "image": "profile.jpg",
+    "id": "admin",
+    "password" : "1234",
+    "name" : "관리자",
+    "birth" : "1994-11-01"
+  },
+  {
+    "image": "profile.jpg",
+    "id": "u01",
+    "password" : "Aa1234!",
+    "name" : "김철수",
+    "birth" : "1996-08-18"
+  },
+  {
+    "image": "profile.jpg",
+    "id": "u02",
+    "password" : "Aa1234!",
+    "name" : "김영희",
+    "birth" : "1997-07-24"
+  }
+]

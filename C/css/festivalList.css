@@ -1,0 +1,29 @@
+#festivalList {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+#festivalList > div {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 10px 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
+}
+
+#festivalList > div > div {
+    background-position: center;
+    background-size: auto 100%;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    transition: 0.35s;
+}
+
+#festivalList > div:hover > div {
+    background-size: auto 120%;
+}
